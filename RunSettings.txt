@@ -1,0 +1,4 @@
+url=https://qa-dorigo.nisaepositive.com
+wayproducts=66555,62000,43389,73193,71132
+freezeproducts=9846,9645,9775,9856,14544
+chillproducts=701266,944270,943316,702083,458360
