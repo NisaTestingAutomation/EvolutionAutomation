@@ -36,7 +36,12 @@ namespace SeleniumTests
             verificationErrors = new StringBuilder();
             navigation = new NavigationPageModel(driver);
             loginPage = new LoginPageModel(driver);
-            driver.Manage().Window.Maximize();            
+            driver.Manage().Window.Maximize();
+            driver.Navigate().GoToUrl(baseURL + "/Index.aspx");
+            loginPage.Username.SendKeys(config["username"]);
+            loginPage.Password.SendKeys(config["password"]);
+            loginPage.LoginButton.Click();
+            Thread.Sleep(2000);
         }
         
         [TearDown]
@@ -61,12 +66,6 @@ namespace SeleniumTests
         [Description("Add, Edit and Delete a Basket")]
         public void TheAddEditDeleteBasketTest()
         {
-            driver.Navigate().GoToUrl(baseURL + "/");
-            driver.FindElement(By.Id("UserName")).Clear();
-            driver.FindElement(By.Id("UserName")).SendKeys("epositive");
-            driver.FindElement(By.Id("Password")).Clear();
-            driver.FindElement(By.Id("Password")).SendKeys("support@secure");
-            driver.FindElement(By.Id("btnLoginByUsername")).Click();
             for (int second = 0; ; second++)
             {
                 if (second >= 60) Assert.Fail("timeout");
@@ -174,11 +173,6 @@ namespace SeleniumTests
             DocumentPageModel document = new DocumentPageModel(driver);
 
             TestName = MethodBase.GetCurrentMethod().Name.Replace("The", "").Replace("Test", "");
-            driver.Navigate().GoToUrl(baseURL + "/Index.aspx");
-            loginPage.Username.SendKeys("epositive");
-            loginPage.Password.SendKeys("support@secure");
-            loginPage.LoginButton.Click();
-            Thread.Sleep(2000);
 
             navigation.Configuration.Click();
             navigation.Documents.Click();
@@ -251,11 +245,6 @@ namespace SeleniumTests
         public void TheAddEditDeleteFixEventTest()
         {
             TestName = MethodBase.GetCurrentMethod().Name.Replace("The", "").Replace("Test", "");
-            driver.Navigate().GoToUrl(baseURL + "/Index.aspx");
-            loginPage.Username.SendKeys("epositive");
-            loginPage.Password.SendKeys("support@secure");
-            loginPage.LoginButton.Click();
-            Thread.Sleep(2000);
 
             navigation.Configuration.Click();
             navigation.Events.Click();
@@ -339,11 +328,6 @@ namespace SeleniumTests
         public void TheAddEditDeleteNonFixEventTest()
         {
             TestName = MethodBase.GetCurrentMethod().Name.Replace("The", "").Replace("Test", "");
-            driver.Navigate().GoToUrl(baseURL + "/Index.aspx");
-            loginPage.Username.SendKeys("epositive");
-            loginPage.Password.SendKeys("support@secure");
-            loginPage.LoginButton.Click();
-            Thread.Sleep(2000);
 
             navigation.Configuration.Click();
             navigation.Events.Click();
@@ -439,11 +423,6 @@ namespace SeleniumTests
         public void TheAddEditDeleteMessageAgeRuleTest()
         {
             TestName = MethodBase.GetCurrentMethod().Name.Replace("The", "").Replace("Test", "");
-            driver.Navigate().GoToUrl(baseURL + "/Index.aspx");
-            loginPage.Username.SendKeys("epositive");
-            loginPage.Password.SendKeys("support@secure");
-            loginPage.LoginButton.Click();
-            Thread.Sleep(2000);
 
             navigation.Configuration.Click();
             navigation.Messages.Click();
@@ -515,11 +494,6 @@ namespace SeleniumTests
         public void TheAddEditDeleteMessageAgeProcedureTest()
         {
             TestName = MethodBase.GetCurrentMethod().Name.Replace("The", "").Replace("Test", "");
-            driver.Navigate().GoToUrl(baseURL + "/Index.aspx");
-            loginPage.Username.SendKeys("epositive");
-            loginPage.Password.SendKeys("support@secure");
-            loginPage.LoginButton.Click();
-            Thread.Sleep(2000);
 
             navigation.Configuration.Click();
             navigation.Messages.Click();
@@ -593,11 +567,6 @@ namespace SeleniumTests
         public void TheAddEditDeleteMessageConditionRuleTest()
         {
             TestName = MethodBase.GetCurrentMethod().Name.Replace("The", "").Replace("Test", "");
-            driver.Navigate().GoToUrl(baseURL + "/Index.aspx");
-            loginPage.Username.SendKeys("epositive");
-            loginPage.Password.SendKeys("support@secure");
-            loginPage.LoginButton.Click();
-            Thread.Sleep(2000);
 
             navigation.Configuration.Click();
             navigation.Messages.Click();
@@ -671,11 +640,6 @@ namespace SeleniumTests
         public void TheAddEditDeleteMessageConditionProcedureTest()
         {
             TestName = MethodBase.GetCurrentMethod().Name.Replace("The", "").Replace("Test", "");
-            driver.Navigate().GoToUrl(baseURL + "/Index.aspx");
-            loginPage.Username.SendKeys("epositive");
-            loginPage.Password.SendKeys("support@secure");
-            loginPage.LoginButton.Click();
-            Thread.Sleep(2000);
 
             navigation.Configuration.Click();
             navigation.Messages.Click();
@@ -749,11 +713,6 @@ namespace SeleniumTests
         public void TheAddEditDeleteMessageAgeConditionRuleTest()
         {
             TestName = MethodBase.GetCurrentMethod().Name.Replace("The", "").Replace("Test", "");
-            driver.Navigate().GoToUrl(baseURL + "/Index.aspx");
-            loginPage.Username.SendKeys("epositive");
-            loginPage.Password.SendKeys("support@secure");
-            loginPage.LoginButton.Click();
-            Thread.Sleep(2000);
 
             navigation.Configuration.Click();
             navigation.Messages.Click();
@@ -824,11 +783,6 @@ namespace SeleniumTests
         public void TheAddEditDeleteMessageAgeConditionProcedureTest()
         {
             TestName = MethodBase.GetCurrentMethod().Name.Replace("The", "").Replace("Test", "");
-            driver.Navigate().GoToUrl(baseURL + "/Index.aspx");
-            loginPage.Username.SendKeys("epositive");
-            loginPage.Password.SendKeys("support@secure");
-            loginPage.LoginButton.Click();
-            Thread.Sleep(2000);
 
             navigation.Configuration.Click();
             navigation.Messages.Click();
@@ -898,11 +852,6 @@ namespace SeleniumTests
         public void TheAddEditDeleteVATTest()
         {
             TestName = MethodBase.GetCurrentMethod().Name.Replace("The", "").Replace("Test", "");
-            driver.Navigate().GoToUrl(baseURL + "/Index.aspx");
-            loginPage.Username.SendKeys("epositive");
-            loginPage.Password.SendKeys("support@secure");
-            loginPage.LoginButton.Click();
-            Thread.Sleep(2000);
 
             navigation.Configuration.Click();
             navigation.VATRates.Click();
@@ -1116,11 +1065,6 @@ namespace SeleniumTests
         [TestCase("Safe Drop", Description="Add, Edit and Delete Reason - Safe Drops")]           
         public void TheAddEditDeleteReasonsTest(string type)
         {
-            driver.Navigate().GoToUrl(baseURL + "/Index.aspx");
-            loginPage.Username.SendKeys("epositive");
-            loginPage.Password.SendKeys("support@secure");
-            loginPage.LoginButton.Click();
-            Thread.Sleep(2000);
 
             navigation.Configuration.Click();
             navigation.Reasons.Click();
@@ -1207,12 +1151,6 @@ namespace SeleniumTests
         [TestCase("Manager", Description = "Add a new Manager user and check that all correct menus are displayed")]        
         public void TheAddEditDeleteUserTest(string role)
         {
-
-            driver.Navigate().GoToUrl(baseURL + "/Index.aspx");
-            loginPage.Username.SendKeys("epositive");
-            loginPage.Password.SendKeys("support@secure");
-            loginPage.LoginButton.Click();
-            Thread.Sleep(2000);
 
             navigation.Configuration.Click();
             navigation.Users.Click();
@@ -1369,11 +1307,6 @@ namespace SeleniumTests
         [TestCase("NISACHL-NISA Chill","chillproducts", Description = "Place and submit chill order")]
         public void TheManualOrderingTest(string supp, string productList)
         {
-            driver.Navigate().GoToUrl(baseURL + "/Index.aspx");
-            loginPage.Username.SendKeys("epositive");
-            loginPage.Password.SendKeys("support@secure");
-            loginPage.LoginButton.Click();
-            Thread.Sleep(2000);
 
             navigation.Replenishment.Click();
             navigation.Order.Click();
@@ -1514,11 +1447,6 @@ namespace SeleniumTests
         [TestCase("NISACHL-NISA Chill", "chillproducts", Description = "Place and submit chill order")]
         public void TheManualOrderingAdvancedSearchTest(string supp, string productList)
         {
-            driver.Navigate().GoToUrl(baseURL + "/Index.aspx");
-            loginPage.Username.SendKeys("epositive");
-            loginPage.Password.SendKeys("support@secure");
-            loginPage.LoginButton.Click();
-            Thread.Sleep(2000);
 
             navigation.Replenishment.Click();
             navigation.Order.Click();
@@ -1693,11 +1621,6 @@ namespace SeleniumTests
         [TestCase("chillproducts", Description = "Place and submit chill stock take")]
         public void TheStockTakeSubmitTest(string productList)
         {
-            driver.Navigate().GoToUrl(baseURL + "/Index.aspx");
-            loginPage.Username.SendKeys("epositive");
-            loginPage.Password.SendKeys("support@secure");
-            loginPage.LoginButton.Click();
-            Thread.Sleep(2000);
 
             navigation.Replenishment.Click();
             navigation.StockTake.Click();
@@ -1809,12 +1732,6 @@ namespace SeleniumTests
         [TestCase("NISACHL-NISA Chill", "chillproducts", Description = "Place and submit chill delivery")]
         public void TheDeliverySubmitTest(string supplier, string products)
         {
-            driver.Navigate().GoToUrl(baseURL + "/Index.aspx");
-            loginPage.Username.SendKeys("epositive");
-            loginPage.Password.SendKeys("support@secure");
-            loginPage.LoginButton.Click();
-            Thread.Sleep(2000);
-
             navigation.Replenishment.Click();
             navigation.Delivery.Click();
             Thread.Sleep(2000);
@@ -1904,13 +1821,7 @@ namespace SeleniumTests
         [TestCase("NISAFRZ-NISA Freeze", "freezeproducts", Description = "Place and submit freeze delivery")]
         [TestCase("NISACHL-NISA Chill", "chillproducts", Description = "Place and submit chill delivery")]
         public void TheDeliveryAdvancedSearchTest(string supplier, string products)
-        {
-            driver.Navigate().GoToUrl(baseURL + "/Index.aspx");
-            loginPage.Username.SendKeys("epositive");
-            loginPage.Password.SendKeys("support@secure");
-            loginPage.LoginButton.Click();
-            Thread.Sleep(2000);
-
+        { 
             navigation.Replenishment.Click();
             navigation.Delivery.Click();
             Thread.Sleep(2000);
@@ -2033,12 +1944,6 @@ namespace SeleniumTests
         [TestCase("Chill Stock Adjustment", "chillproducts", Description = "Create and submit a chill stock adjustment")]
         public void TheAdvancedSearchStockAdjustmentTest(string comment, string products)
         {
-            driver.Navigate().GoToUrl(baseURL + "/Index.aspx");
-            loginPage.Username.SendKeys("epositive");
-            loginPage.Password.SendKeys("support@secure");
-            loginPage.LoginButton.Click();
-            Thread.Sleep(2000);
-
             navigation.Replenishment.Click();
             navigation.StockAdjustment.Click();
             Thread.Sleep(2000);
@@ -2151,12 +2056,6 @@ namespace SeleniumTests
         [TestCase("Chill Stock Adjustment", "chillproducts", Description = "Create and submit a chill stock adjustment")]
         public void TheQuickAddStockAdjustmentTest(string comment, string products)
         {
-            driver.Navigate().GoToUrl(baseURL + "/Index.aspx");
-            loginPage.Username.SendKeys("epositive");
-            loginPage.Password.SendKeys("support@secure");
-            loginPage.LoginButton.Click();
-            Thread.Sleep(2000);
-
             navigation.Replenishment.Click();
             navigation.StockAdjustment.Click();
             Thread.Sleep(2000);
