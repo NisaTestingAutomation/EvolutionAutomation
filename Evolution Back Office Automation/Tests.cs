@@ -1989,6 +1989,156 @@ namespace SeleniumTests
             Logout();
         }
 
+        [Test]
+        public void TheTillSendTest()
+        {
+            navigation.Utilities.Click();
+            navigation.TillSend.Click();
+            Thread.Sleep(2000);
+
+            TillSendPageModel tillSend = new TillSendPageModel(driver);
+
+            for (int i = 0; ; i++) {
+                if (i >= 60) Assert.Fail("timeout");
+                try {
+                    if (tillSend.TillSendFrame.Displayed) break;
+                }
+                catch (Exception) { }
+                Thread.Sleep(1000);
+            }
+
+            Thread.Sleep(1000);
+
+            driver.SwitchTo().Frame(tillSend.TillSendFrame);
+
+            tillSend.TillSendSelectAll.Click();
+
+            tillSend.TillSendButton.Click();
+
+            for (int i = 0; ; i++)
+            {
+                if (i >= 60) Assert.Fail("timeout");
+                try
+                {
+                    if (tillSend.TillSendMessageLine1.Text.Contains("Send data started")) break;
+                }
+                catch (Exception) { }
+                Thread.Sleep(1000);
+            }
+
+            for (int i = 0; ; i++)
+            {
+                if (i >= 120) Assert.Fail("timeout");
+                try
+                {
+                    if (tillSend.TillSendMessageLine2.Text.Contains("Data has been sent successfully")) break;
+                }
+                catch (Exception) { }
+                Thread.Sleep(1000);
+            }
+
+            for (int i = 0; ; i++)
+            {
+                if (i >= 120) Assert.Fail("timeout");
+                try
+                {
+                    if (tillSend.TillSendMessageLine3.Text.Contains("Send files started")) break;
+                }
+                catch (Exception) { }
+                Thread.Sleep(1000);
+            }
+
+            for (int i = 0; ; i++)
+            {
+                if (i >= 120) Assert.Fail("timeout");
+                try
+                {
+                    if (tillSend.TillSendMessageLine4.Text.Contains("Files has been sent successfully")) break;
+                }
+                catch (Exception) { }
+                Thread.Sleep(1000);
+            }
+
+            driver.SwitchTo().DefaultContent();
+            Logout();
+        }
+
+        [Test]
+        public void TheTillReceiveTest()
+        {
+            navigation.Utilities.Click();
+            navigation.TillReceive.Click();
+            Thread.Sleep(2000);
+
+            TillReceivePageModel tillRec = new TillReceivePageModel(driver);
+
+            for (int i = 0; ; i++)
+            {
+                if (i >= 60) Assert.Fail("timeout");
+                try
+                {
+                    if (tillRec.TillRecFrame.Displayed) break;
+                }
+                catch (Exception) { }
+                Thread.Sleep(1000);
+            }
+
+            Thread.Sleep(1000);
+
+            driver.SwitchTo().Frame(tillRec.TillRecFrame);
+
+            tillRec.TillRecSelectAll.Click();
+
+            tillRec.TillRecButton.Click();
+
+            for (int i = 0; ; i++)
+            {
+                if (i >= 60) Assert.Fail("timeout");
+                try
+                {
+                    if (tillRec.TillRecMessageLine1.Text.Contains("Receive data started")) break;
+                }
+                catch (Exception) { }
+                Thread.Sleep(1000);
+            }
+
+            for (int i = 0; ; i++)
+            {
+                if (i >= 120) Assert.Fail("timeout");
+                try
+                {
+                    if (tillRec.TillRecMessageLine2.Text.Contains("Data has been received successfully")) break;
+                }
+                catch (Exception) { }
+                Thread.Sleep(1000);
+            }
+
+            for (int i = 0; ; i++)
+            {
+                if (i >= 120) Assert.Fail("timeout");
+                try
+                {
+                    if (tillRec.TillRecMessageLine3.Text.Contains("Receive files started")) break;
+                }
+                catch (Exception) { }
+                Thread.Sleep(1000);
+            }
+
+            for (int i = 0; ; i++)
+            {
+                if (i >= 120) Assert.Fail("timeout");
+                try
+                {
+                    if (tillRec.TillRecMessageLine4.Text.Contains("Files has been received successfully")) break;
+                }
+                catch (Exception) { }
+                Thread.Sleep(1000);
+            }
+
+            driver.SwitchTo().DefaultContent();
+            Logout();
+        }
+
         private bool IsElementPresent(By by)
         {
             try

@@ -64,6 +64,7 @@
     <Compile Include="StockPageModel.cs" />
     <Compile Include="Tests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="TillSendPageModel.cs" />
     <Compile Include="UsersPageModel.cs" />
     <Compile Include="VATPageModel.cs" />
   </ItemGroup>
