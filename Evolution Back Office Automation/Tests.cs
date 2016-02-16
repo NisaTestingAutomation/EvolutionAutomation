@@ -46,7 +46,8 @@ namespace SeleniumTests
         
         [TearDown]
         public void TeardownTest()
-        {
+        {           
+
             try
             {
                 
@@ -60,6 +61,24 @@ namespace SeleniumTests
             }
             Console.Write(verificationErrors);
             Assert.AreEqual("", verificationErrors.ToString());
+        }
+
+        public void Logout()
+        {
+            navigation.Logout.Click();
+            navigation.ConfirmPopup.Click();
+
+            for (int second = 0; ; second++)
+            {
+                if (second >= 60) Assert.Fail("timeout");
+                try
+                {
+                    if ("Login" == driver.Title) break;
+                }
+                catch (Exception)
+                { }
+                Thread.Sleep(1000);
+            }
         }
 
         [Test]
@@ -225,19 +244,7 @@ namespace SeleniumTests
 
             driver.SwitchTo().DefaultContent();
 
-            navigation.Logout.Click();
-            navigation.ConfirmPopup.Click();
-
-            for (int second = 0;; second++) {
-                if (second >= 60) Assert.Fail("timeout");
-                try
-                {
-                    if (driver.Title == "Login") break;
-                }
-                catch (Exception)
-                { }
-                Thread.Sleep(1000);
-            }
+            Logout();
         }
 
         [Test]
@@ -307,20 +314,7 @@ namespace SeleniumTests
             navigation.ConfirmPopup.Click();
             driver.SwitchTo().DefaultContent();
 
-            navigation.Logout.Click();
-            navigation.ConfirmPopup.Click();
-
-            for (int second = 0; ; second++)
-            {
-                if (second >= 60) Assert.Fail("timeout");
-                try
-                {
-                    if ("Login" == driver.Title) break;
-                }
-                catch (Exception)
-                { }
-                Thread.Sleep(1000);
-            }
+            Logout();
         }
 
         [Test]
@@ -402,20 +396,7 @@ namespace SeleniumTests
             navigation.ConfirmPopup.Click();
             driver.SwitchTo().DefaultContent();
 
-            navigation.Logout.Click();
-            navigation.ConfirmPopup.Click();
-
-            for (int second = 0; ; second++)
-            {
-                if (second >= 60) Assert.Fail("timeout");
-                try
-                {
-                    if ("Login" == driver.Title) break;
-                }
-                catch (Exception)
-                { }
-                Thread.Sleep(1000);
-            }
+            Logout();
         }
 
         [Test]
@@ -473,20 +454,7 @@ namespace SeleniumTests
             navigation.ConfirmPopup.Click();
             driver.SwitchTo().DefaultContent();
 
-            navigation.Logout.Click();
-            navigation.ConfirmPopup.Click();
-
-            for (int second = 0; ; second++)
-            {
-                if (second >= 60) Assert.Fail("timeout");
-                try
-                {
-                    if ("Login" == driver.Title) break;
-                }
-                catch (Exception)
-                { }
-                Thread.Sleep(1000);
-            }
+            Logout();
         }
 
         [Test]
@@ -546,20 +514,7 @@ namespace SeleniumTests
             navigation.ConfirmPopup.Click();
             driver.SwitchTo().DefaultContent();
 
-            navigation.Logout.Click();
-            navigation.ConfirmPopup.Click();
-
-            for (int second = 0; ; second++)
-            {
-                if (second >= 60) Assert.Fail("timeout");
-                try
-                {
-                    if ("Login" == driver.Title) break;
-                }
-                catch (Exception)
-                { }
-                Thread.Sleep(1000);
-            }
+            Logout();
         }
 
         [Test]
@@ -619,20 +574,7 @@ namespace SeleniumTests
             navigation.ConfirmPopup.Click();
             driver.SwitchTo().DefaultContent();
 
-            navigation.Logout.Click();
-            navigation.ConfirmPopup.Click();
-
-            for (int second = 0; ; second++)
-            {
-                if (second >= 60) Assert.Fail("timeout");
-                try
-                {
-                    if ("Login" == driver.Title) break;
-                }
-                catch (Exception)
-                { }
-                Thread.Sleep(1000);
-            }
+            Logout();
         }
 
         [Test]
@@ -692,20 +634,7 @@ namespace SeleniumTests
             navigation.ConfirmPopup.Click();
             driver.SwitchTo().DefaultContent();
 
-            navigation.Logout.Click();
-            navigation.ConfirmPopup.Click();
-
-            for (int second = 0; ; second++)
-            {
-                if (second >= 60) Assert.Fail("timeout");
-                try
-                {
-                    if ("Login" == driver.Title) break;
-                }
-                catch (Exception)
-                { }
-                Thread.Sleep(1000);
-            }
+            Logout();
         }
 
         [Test]
@@ -762,20 +691,7 @@ namespace SeleniumTests
             navigation.ConfirmPopup.Click();
             driver.SwitchTo().DefaultContent();
 
-            navigation.Logout.Click();
-            navigation.ConfirmPopup.Click();
-
-            for (int second = 0; ; second++)
-            {
-                if (second >= 60) Assert.Fail("timeout");
-                try
-                {
-                    if ("Login" == driver.Title) break;
-                }
-                catch (Exception)
-                { }
-                Thread.Sleep(1000);
-            }
+            Logout();
         }        
 
         [Test]
@@ -831,20 +747,7 @@ namespace SeleniumTests
             navigation.ConfirmPopup.Click();
             driver.SwitchTo().DefaultContent();
 
-            navigation.Logout.Click();
-            navigation.ConfirmPopup.Click();
-
-            for (int second = 0; ; second++)
-            {
-                if (second >= 60) Assert.Fail("timeout");
-                try
-                {
-                    if ("Login" == driver.Title) break;
-                }
-                catch (Exception)
-                { }
-                Thread.Sleep(1000);
-            }
+            Logout();
         }
 
         [Test]
@@ -916,20 +819,7 @@ namespace SeleniumTests
             navigation.ConfirmPopup.Click();
             driver.SwitchTo().DefaultContent();
 
-            navigation.Logout.Click();
-            navigation.ConfirmPopup.Click();
-
-            for (int second = 0; ; second++)
-            {
-                if (second >= 60) Assert.Fail("timeout");
-                try
-                {
-                    if ("Login" == driver.Title) break;
-                }
-                catch (Exception)
-                { }
-                Thread.Sleep(1000);
-            }
+            Logout();
         }
 
         //[Test]
@@ -1129,20 +1019,7 @@ namespace SeleniumTests
             driver.FindElement(By.Name("Yes")).Click();
             driver.SwitchTo().DefaultContent();
 
-            navigation.Logout.Click();
-            driver.FindElement(By.Name("Yes")).Click();
-
-            for (int second = 0; ; second++)
-            {
-                if (second >= 60) Assert.Fail("timeout");
-                try
-                {
-                    if ("Login" == driver.Title) break;
-                }
-                catch (Exception)
-                { }
-                Thread.Sleep(1000);
-            }
+            Logout();
         }
 
         [Test]
@@ -1207,20 +1084,7 @@ namespace SeleniumTests
             users.SaveUser.Click();
 
             driver.SwitchTo().DefaultContent();
-            navigation.Logout.Click();
-            driver.FindElement(By.Name("Yes")).Click();
-
-            for (int second = 0; ; second++)
-            {
-                if (second >= 60) Assert.Fail("timeout");
-                try
-                {
-                    if ("Login" == driver.Title) break;
-                }
-                catch (Exception)
-                { }
-                Thread.Sleep(1000);
-            }
+            Logout();
 
             loginPage.Username.SendKeys("SeleniumUser");
             loginPage.Password.SendKeys("123456a");
@@ -1242,19 +1106,7 @@ namespace SeleniumTests
 
             Thread.Sleep(1000);
 
-            navigation.Logout.Click();
-
-            for (int second = 0; ; second++)
-            {
-                if (second >= 60) Assert.Fail("timeout");
-                try
-                {
-                    if ("Login" == driver.Title) break;
-                }
-                catch (Exception)
-                { }
-                Thread.Sleep(1000);
-            }
+            Logout();
 
             loginPage.Username.SendKeys("epositive");
             loginPage.Password.SendKeys("support@secure");
@@ -1284,21 +1136,8 @@ namespace SeleniumTests
             shared.WaitForElementAppear(driver, navigation.ConfirmPopup);
             navigation.ConfirmPopup.Click();
             driver.SwitchTo().DefaultContent();
-            navigation.Logout.Click();
-            shared.WaitForElementAppear(driver, navigation.ConfirmPopup);
-            navigation.ConfirmPopup.Click();
-            for (int second = 0; ; second++)
-            {
-                if (second >= 60) Assert.Fail("timeout");
-                try
-                {
-                    if ("Login" == driver.Title) break;
-                }
-                catch (Exception)
-                { }
-                Thread.Sleep(1000);
-            }
-            
+
+            Logout();
         }
 
         [Test]
@@ -1425,20 +1264,7 @@ namespace SeleniumTests
             navigation.ConfirmPopup.Click();
             driver.SwitchTo().DefaultContent();
 
-            navigation.Logout.Click();
-            navigation.ConfirmPopup.Click();
-
-            for (int second = 0; ; second++)
-            {
-                if (second >= 60) Assert.Fail("timeout");
-                try
-                {
-                    if ("Login" == driver.Title) break;
-                }
-                catch (Exception)
-                { }
-                Thread.Sleep(1000);
-            }
+            Logout();
         }
 
         [Test]
@@ -1598,20 +1424,7 @@ namespace SeleniumTests
             navigation.ConfirmPopup.Click();
             driver.SwitchTo().DefaultContent();
 
-            navigation.Logout.Click();
-            navigation.ConfirmPopup.Click();
-
-            for (int second = 0; ; second++)
-            {
-                if (second >= 60) Assert.Fail("timeout");
-                try
-                {
-                    if ("Login" == driver.Title) break;
-                }
-                catch (Exception)
-                { }
-                Thread.Sleep(1000);
-            }
+            Logout();
         }
 
 
@@ -1710,20 +1523,7 @@ namespace SeleniumTests
                 catch (Exception) { }
                 Thread.Sleep(1000);
             }
-            navigation.Logout.Click();
-            navigation.ConfirmPopup.Click();
-
-            for (int second = 0; ; second++)
-            {
-                if (second >= 60) Assert.Fail("timeout");
-                try
-                {
-                    if ("Login" == driver.Title) break;
-                }
-                catch (Exception)
-                { }
-                Thread.Sleep(1000);
-            }
+            Logout();
         }
 
         [Test]
@@ -1800,20 +1600,7 @@ namespace SeleniumTests
                 catch (Exception) { }
             }
 
-            navigation.Logout.Click();
-            navigation.ConfirmPopup.Click();
-
-            for (int second = 0; ; second++)
-            {
-                if (second >= 60) Assert.Fail("timeout");
-                try
-                {
-                    if ("Login" == driver.Title) break;
-                }
-                catch (Exception)
-                { }
-                Thread.Sleep(1000);
-            }
+            Logout();
         }
 
         [Test]
@@ -1922,20 +1709,7 @@ namespace SeleniumTests
                 catch (Exception) { }
             }
 
-            navigation.Logout.Click();
-            navigation.ConfirmPopup.Click();
-
-            for (int second = 0; ; second++)
-            {
-                if (second >= 60) Assert.Fail("timeout");
-                try
-                {
-                    if ("Login" == driver.Title) break;
-                }
-                catch (Exception)
-                { }
-                Thread.Sleep(1000);
-            }
+            Logout();
         }
 
         [Test]
@@ -2034,20 +1808,7 @@ namespace SeleniumTests
                 catch (Exception) { }
                 Thread.Sleep(1000);
             }
-            navigation.Logout.Click();
-            navigation.ConfirmPopup.Click();
-
-            for (int second = 0; ; second++)
-            {
-                if (second >= 60) Assert.Fail("timeout");
-                try
-                {
-                    if ("Login" == driver.Title) break;
-                }
-                catch (Exception)
-                { }
-                Thread.Sleep(1000);
-            }            
+            Logout();
         }
 
         [Test]
@@ -2126,20 +1887,106 @@ namespace SeleniumTests
                 catch (Exception) { }
                 Thread.Sleep(1000);
             }
-            navigation.Logout.Click();
-            navigation.ConfirmPopup.Click();
 
-            for (int second = 0; ; second++)
+            Logout();
+        }
+
+        [Test]
+        public void TheAddEditDeleteItemGroupsTest()
+        {
+            navigation.Groups.Click();
+            navigation.ItemGroups.Click();
+            Thread.Sleep(2000);
+
+            ItemGroupsPageModel itemGroups = new ItemGroupsPageModel(driver);
+
+            for (int i=0; ; i++)
             {
-                if (second >= 60) Assert.Fail("timeout");
+                if (i >= 60) Assert.Fail("timeout");
                 try
                 {
-                    if ("Login" == driver.Title) break;
+                    if (itemGroups.ItemGroupFrame.Displayed) break;
                 }
-                catch (Exception)
-                { }
+                catch (Exception) { }
                 Thread.Sleep(1000);
             }
+            driver.SwitchTo().Frame(itemGroups.ItemGroupFrame);
+            itemGroups.AddItemGroup.Click();
+
+            itemGroups.ItemGroupName.SendKeys("Auto Item Group");
+
+            itemGroups.ItemGroupParent.Click();
+
+            for (int i = 0; ; i++)
+            {
+                if (i >= 60) Assert.Fail("timeout");
+                try
+                {
+                    if (itemGroups.ParentFrame.Displayed) break;
+                }
+                catch (Exception) { }
+                Thread.Sleep(1000);
+            }
+            driver.SwitchTo().Frame(itemGroups.ParentFrame);
+
+            Thread.Sleep(1500);
+
+            itemGroups.ItemGroupParentGrocery.Click();
+            itemGroups.ItemGroupParentGrocery.Click();
+
+            driver.SwitchTo().DefaultContent();
+            driver.SwitchTo().Frame("tab-30");
+
+            Thread.Sleep(1000);
+
+            driver.FindElement(By.Name("Yes")).Click();
+
+            Thread.Sleep(1000);
+
+            new SelectElement(itemGroups.ItemGroupVAT).SelectByText("Standard");
+
+            new SelectElement(itemGroups.ItemGroupUOM).SelectByText("Kilogram (kg)");
+
+            itemGroups.SaveItemGroup.Click();
+
+            Thread.Sleep(2000);
+
+            itemGroups.SearchItemGroupText.SendKeys("Auto Item Group");
+
+            itemGroups.SearchItemGroupButton.Click();
+
+            Thread.Sleep(1000);
+
+            itemGroups.EditItemGroup.Click();
+
+            Thread.Sleep(1000);
+
+            itemGroups.ItemGroupName.Clear();
+            itemGroups.ItemGroupName.SendKeys("Edited Auto Item Group");
+
+            itemGroups.SaveItemGroup.Click();
+
+            Thread.Sleep(2000);
+
+            itemGroups.ResetSearchItemGroupButton.Click();
+
+            Thread.Sleep(1000);
+
+            itemGroups.SearchItemGroupText.SendKeys("Auto Item Group");
+
+            Thread.Sleep(1000);
+
+            itemGroups.SearchItemGroupButton.Click();
+
+            Thread.Sleep(2000);
+
+            itemGroups.DeleteItemGroup.Click();
+
+            navigation.ConfirmPopup.Click();
+
+            driver.SwitchTo().DefaultContent();
+
+            Logout();
         }
 
         private bool IsElementPresent(By by)

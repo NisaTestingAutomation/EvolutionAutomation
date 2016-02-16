@@ -55,6 +55,7 @@
     <Compile Include="DocumentPageModel.cs" />
     <Compile Include="DeliveryPageModel.cs" />
     <Compile Include="EventPageModel.cs" />
+    <Compile Include="ItemGroupsPageModel.cs" />
     <Compile Include="LoginPageModel.cs" />
     <Compile Include="MessagesPageModel.cs" />
     <Compile Include="NavigationPageModel.cs" />
